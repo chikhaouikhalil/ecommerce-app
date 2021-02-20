@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-app",
+  "version": "1.0.0",
+  "description": "MongoDB, Express, React, NodeJs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chikhaouikhalil/ecommerce-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chikhaouikhalil/ecommerce-app/issues"
+  },
+  "homepage": "https://github.com/chikhaouikhalil/ecommerce-app#readme"
+}
