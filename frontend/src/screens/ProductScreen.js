@@ -2,11 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
+import axios from "axios";
 
 const ProductScreen = ({ match }) => {
+  const { id } = match.params;
   // match allow as to have the access to /:id from the url
-  const product = products.find((p) => p._id === match.params.id);
+  const [product, setProduct] = React.useState({});
+  React.useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get(`/api/products/${id}`);
+      setProduct(data);
+    };
+    fetchProducts();
+  }, []);
   return (
     <>
       <Link className="btn btn-light my-2" to="/">
