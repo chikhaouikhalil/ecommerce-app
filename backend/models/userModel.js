@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -26,9 +27,21 @@ const userSchema = mongoose.Schema(
   }
 );
 
+// matchPassword a method we can use
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+
+// encrypt password before save in db  ( function fire  " on save ")
+userSchema.pre("save", async function (next) {
+  // check if the password is not modified  (on update a field for example we don't want to do anything here so go next)
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
 
 const User = mongoose.model("User", userSchema);
 
