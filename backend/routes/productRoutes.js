@@ -4,6 +4,9 @@ import Product from "../models/productModel.js";
 
 const router = express.Router();
 
+
+
+
 // @desc Fetch All products
 // @route GET /api/products
 // @access Public
@@ -14,6 +17,7 @@ router.get(
     res.json(products);
   })
 );
+
 
 // @desc Fetch signle product
 // @route GET /api/product/:id
@@ -30,8 +34,8 @@ router.get(
       res.status(404);
       throw new Error("Product not found");
     }
-    res.json(product);
   })
 );
+
 
 export default router;
