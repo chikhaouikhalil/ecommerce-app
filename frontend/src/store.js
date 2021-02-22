@@ -6,7 +6,7 @@ import {productListReducer} from './reducers/productReducers'
 //create reducer
 const reducer = combineReducers({
     // productList will be part of the state
-    productList:productListReducer
+    productList:productListReducer,
 })
 
 //define initState
