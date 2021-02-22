@@ -1,3 +1,14 @@
 main {
   min-height: 80vh;
 }
+
+h1 {
+  font-size: 1.7rem !important;
+  padding: 1rem 0 !important;
+}
+
+h2 {
+  font-size: 1.3rem !important;
+  padding: 0.5rem 0 !important;
+  color: #666 !important;
+}
